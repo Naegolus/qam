@@ -1,7 +1,7 @@
 -----------------------------------------------------------------------------
 -----------------------------------------------------------------------------
 --                                                                         --
---  This file is part of the DE0_Nano_Linux project                        --
+--  This file is part of the DE0 Nano Linux project                        --
 --  http://www.de0nanolinux.com                                            --
 --                                                                         --
 --  Author(s):                                                             --
