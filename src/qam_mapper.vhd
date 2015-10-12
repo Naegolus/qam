@@ -26,3 +26,32 @@
 --                                                                         --
 -----------------------------------------------------------------------------
 -----------------------------------------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity qam_mapper is
+
+	generic
+	(
+		n : natural := 1
+	);
+	port
+	(
+		data		: in  std_ulogic_vector(4**n - 1 downto 0);
+		inphase		: out unsigned(1 downto 0);
+		quadrature	: out unsigned(1 downto 0)
+	);
+
+begin
+
+	assert (n >= 1)
+		report "QAM-Mapper: n must be at least 1"
+		severity error;
+
+end entity qam_mapper;
+
+architecture rtl of qam_mapper is
+begin
+end architecture rtl;
