@@ -30,6 +30,7 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use ieee.fixed_pkg.all;
 
 entity qam_mapper is
 
@@ -40,8 +41,8 @@ entity qam_mapper is
 	port
 	(
 		data		: in  std_ulogic_vector(4**n - 1 downto 0);
-		in_phase	: out unsigned(1 downto 0);
-		quadrature	: out unsigned(1 downto 0)
+		in_phase	: out sfixed(1 downto -(4**(n - 1) - 2));
+		quadrature	: out sfixed(1 downto -(4**(n - 1) - 2))
 	);
 
 begin
