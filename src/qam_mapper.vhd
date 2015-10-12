@@ -40,7 +40,7 @@ entity qam_mapper is
 	port
 	(
 		data		: in  std_ulogic_vector(4**n - 1 downto 0);
-		inphase		: out unsigned(1 downto 0);
+		in_phase	: out unsigned(1 downto 0);
 		quadrature	: out unsigned(1 downto 0)
 	);
 
