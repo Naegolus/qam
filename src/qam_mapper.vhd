@@ -63,12 +63,12 @@ architecture rtl of qam_mapper is
 
 begin
 
-	sig_in_phase(1)   <= data(DATA_LEN - 1);
-	sig_quadrature(1) <= data(DATA_LEN);
+	sig_in_phase  (1) <= data(DATA_LEN - 1);
+	sig_quadrature(1) <= data(DATA_LEN - 2);
 
 	comb_a: for i in 1 to OUT_LEN - 2 generate
-		sig_in_phase  (1 - i) <= sig_in_phase  (0 - i) xor data(DATA_LEN - 1 - 2*i);
-		sig_quadrature(1 - i) <= sig_quadrature(0 - i) xor data(DATA_LEN - 2 - 2*i);
+		sig_in_phase  (1 - i) <= sig_in_phase  (2 - i) xor data(DATA_LEN - 1 - 2*i);
+		sig_quadrature(1 - i) <= sig_quadrature(2 - i) xor data(DATA_LEN - 2 - 2*i);
 	end generate;
 
 	in_phase   <= sig_in_phase;
