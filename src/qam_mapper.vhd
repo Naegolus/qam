@@ -47,9 +47,9 @@ entity qam_mapper is
 
 begin
 
-	assert (n >= 1)
-		report "QAM-Mapper: n must be at least 1"
-		severity error;
+	assert 		n >= 1
+	report 		"QAM-Mapper: n must be at least 1"
+	severity 	error;
 
 end entity qam_mapper;
 
