@@ -26,3 +26,36 @@
 --                                                                         --
 -----------------------------------------------------------------------------
 -----------------------------------------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.fixed_pkg.all;
+
+entity tb_qam is
+end entity tb_qam;
+
+architecture bhv of tb_qam is
+
+	constant QAM_1_N	: natural := 1;
+	constant QAM_1_DATA_LEN	: natural := 4**QAM_1_N;
+	constant QAM_1_OUT_LEN	: natural := QAM_1_DATA_LEN / 2;
+	signal qam_1_data	: std_ulogic_vector(QAM_1_DATA_LEN - 1 downto 0) := (others => '0');
+	signal qam_1_in_phase	: sfixed(QAM_1_OUT_LEN - 1 downto 0);
+	signal qam_1_quadrature	: sfixed(QAM_1_OUT_LEN - 1 downto 0);
+
+begin
+
+	qam_1: entity work.qam_mapper(rtl)
+	generic map
+	(
+		n		=> QAM_1_N
+	)
+	port map
+	(
+		data		=> qam_1_data,
+		in_phase	=> qam_1_in_phase,
+		quadrature	=> qam_1_quadrature
+	);
+
+end architecture bhv;
