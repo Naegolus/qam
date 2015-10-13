@@ -60,6 +60,9 @@ begin
 
 	stimu: process
 	begin
+		-- TODO: Set input
+		wait for 2 ns;
+		-- TODO: Check output
 		assert false report "Simulation failed" severity error;
 
 		assert false report "SIMULATION ENDED SUCCESSFULLY" severity note;
