@@ -58,4 +58,12 @@ begin
 		quadrature	=> qam_1_quadrature
 	);
 
+	stimu: process
+	begin
+		assert false report "Simulation failed" severity error;
+
+		assert false report "SIMULATION ENDED SUCCESSFULLY" severity note;
+		wait;
+	end process;
+
 end architecture bhv;
