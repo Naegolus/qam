@@ -41,5 +41,8 @@ vcom ${src_root}/pkg_global.vhd
 vcom ${src_root}/qam_mapper.vhd
 vcom ${src_root}/qam_demapper.vhd
 
+# testbed
+vcom ${src_root}/tbd_qam.vhd
+
 # testbench
 vcom ${src_root}/tb_qam.vhd
