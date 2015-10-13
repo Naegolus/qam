@@ -54,5 +54,24 @@ begin
 end entity qam_mapper;
 
 architecture rtl of qam_mapper is
+
+	constant DATA_LEN	: natural := 4**n;
+	constant OUT_LEN	: natural := 4**(n - 1);
+
+	signal sig_in_phase	: sfixed(1 downto -(OUT_LEN - 2));
+	signal sig_quadrature	: sfixed(1 downto -(OUT_LEN - 2));
+
 begin
+
+	sig_in_phase(1)   <= data(DATA_LEN - 1);
+	sig_quadrature(1) <= data(DATA_LEN);
+
+	comb_a: for i in 1 to OUT_LEN - 2 generate
+		sig_in_phase  (1 - i) <= sig_in_phase  (0 - i) xor data(DATA_LEN - 1 - 2*i);
+		sig_quadrature(1 - i) <= sig_quadrature(0 - i) xor data(DATA_LEN - 2 - 2*i);
+	end generate;
+
+	in_phase   <= sig_in_phase;
+	quadrature <= sig_quadrature;
+
 end architecture rtl;
